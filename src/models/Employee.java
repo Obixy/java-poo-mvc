@@ -14,8 +14,7 @@ public class Employee {
 
 	}
 
-	public Employee(Integer id, String name, Integer age, Double weight, Double salary, Department department) {
-		this.id = id;
+	public Employee(String name, Integer age, Double weight, Double salary, Department department) {
 		this.name = name;
 		this.age = age;
 		this.weight = weight;
@@ -23,12 +22,12 @@ public class Employee {
 		this.department = department;
 	}
 
+	public void setId(Integer id) {
+		this.id = id + 1;
+	}
+	
 	public Integer getId() {
 		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getName() {

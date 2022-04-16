@@ -1,4 +1,4 @@
-package views;
+package views.Employee;
 
 import java.util.List;
 import java.util.Scanner;
@@ -7,17 +7,23 @@ import controllers.EmployeeController;
 import models.Department;
 import models.Employee;
 
-public class CreateEmployee {
-
-	public static Scanner scan = new Scanner(System.in);
-
-	public static void execute(List<Employee> employees, List<Department> departments) {
+public class CreateEmployeeView {
+	
+	private static Scanner scan;
+	private static EmployeeController controller;
+	
+	public CreateEmployeeView(Scanner scan, EmployeeController controller) {
+		this.scan = scan;
+		this.controller = controller;
+	}
+	
+	public static void execute(List<Department> departments) {
 		System.out.println("|====================================|");
-		System.out.println("|       CADASTRAR FUNCIONÁRIO        |");
+		System.out.println("|       CADASTRAR FUNCIONÃ�RIO       |");
 		System.out.println("|====================================|");
 
 		System.out.print("| [1] Digite o nome: ");
-		var name = scan.nextLine();
+		var name = scan.next();
 
 		System.out.print("| [2] Digite a idade: ");
 		var age = scan.nextInt();
@@ -30,17 +36,17 @@ public class CreateEmployee {
 
 		System.out.println("| [5] Selecione o departamento: ");
 		
-		ListDepartment.execute(departments);
-		System.out.print("| Digite a posição selecionada: ");
-		Department department = verifyDepartment(departments);
+		departments.forEach(d -> System.out.println(d.toString()));
+		System.out.print("| Digite a posiÃ§Ã£o selecionada: ");
+		var department = verifyDepartment(departments);
 
-		var createdEmployee = new Employee(employees.size() + 1, name, age, weight, salary, department);
-
-		EmployeeController.post(employees, createdEmployee);
+		var employee = new Employee(name, age, weight, salary, department);
 		
 		System.out.println("|====================================|");
 		System.out.println("|             CADASTRADO             |");
 		System.out.println("|====================================|");
+
+		controller.post(employee);
 	}
 
 	public static Department verifyDepartment(List<Department> departments) {
@@ -55,5 +61,4 @@ public class CreateEmployee {
 
 		return null;
 	}
-
 }

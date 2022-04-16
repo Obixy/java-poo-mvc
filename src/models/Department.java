@@ -2,20 +2,19 @@ package models;
 
 public class Department {
 
-	private Integer id;
+	private Integer id = 1;
 	private String name;
 
-	public Department(Integer id, String name) {
-		this.id = id;
+	public Department(String name) {
 		this.name = name;
+	}
+
+	public void setId(Integer id) {
+		this.id = id + 1;
 	}
 
 	public Integer getId() {
 		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getName() {

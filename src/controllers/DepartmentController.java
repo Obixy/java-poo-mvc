@@ -2,20 +2,25 @@ package controllers;
 
 import java.util.List;
 
+import Services.DepartmentService;
 import models.Department;
 
 public class DepartmentController {
 
-	// POST === Criar
-	public static void post(List<Department> departments, Department newDepartment) {
-		departments.add(newDepartment);
+	private DepartmentService service;
+
+	public DepartmentController(DepartmentService service) {
+		this.service = service;
+	}
+	
+//	 POST === Criar
+	public void post(Department newDepartment) {
+		this.service.Add(newDepartment);;
+		HomeController.start();
 	}
 
-	// GET === Listar
-	public static void get(List<Department> departments) {
-		departments.forEach(res -> {
-			System.out.println(res.toString());
-		});
+//	 GET === Listar
+	public List<Department> get() {
+		return this.service.GetAll();
 	}
-
 }

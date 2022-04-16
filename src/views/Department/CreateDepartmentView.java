@@ -1,16 +1,21 @@
-package views;
+package views.Department;
 
-import java.util.List;
 import java.util.Scanner;
 
 import controllers.DepartmentController;
 import models.Department;
 
-public class CreateDepartment {
+public class CreateDepartmentView {
 
-	public static Scanner scan = new Scanner(System.in);
-
-	public static void execute(List<Department> departments) {
+	public static DepartmentController controller;
+	public static Scanner scan;
+	
+	public CreateDepartmentView(DepartmentController controller, Scanner scan) {
+		this.controller = controller;
+		this.scan = scan;
+	}
+	
+	public static void execute() {
 		System.out.println("|====================================|");
 		System.out.println("|       CADASTRAR DEPARTAMENTO       |");
 		System.out.println("|====================================|");
@@ -18,13 +23,13 @@ public class CreateDepartment {
 		System.out.print("| Digite o nome do departamento: ");
 		var name = scan.next();
 
-		var createdDepartment = new Department(departments.size() + 1, name);
-
-		DepartmentController.post(departments, createdDepartment);
+		var createdDepartment = new Department(name);
 
 		System.out.println("|====================================|");
 		System.out.println("|             CADASTRADO             |");
 		System.out.println("|====================================|");
+		
+		controller.post(createdDepartment);
 	}
 
 }
