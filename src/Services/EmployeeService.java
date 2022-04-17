@@ -3,9 +3,10 @@ package Services;
 import java.util.List;
 
 import Repositories.EmployeeRepository;
+import abstractions.services.IEmployeeService;
 import models.Employee;
 
-public class EmployeeService {
+public class EmployeeService implements IEmployeeService {
 	
 	private EmployeeRepository repo;
 

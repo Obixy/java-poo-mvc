@@ -15,7 +15,7 @@ public class DepartmentController {
 	
 //	 POST === Criar
 	public void post(Department newDepartment) {
-		this.service.Add(newDepartment);;
+		this.service.Add(newDepartment);
 		HomeController.start();
 	}
 

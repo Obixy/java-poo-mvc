@@ -3,9 +3,10 @@ package Repositories;
 import java.util.ArrayList;
 import java.util.List;
 
+import abstractions.repositories.IEmployeeRepository;
 import models.Employee;
 
-public class EmployeeRepository {
+public class EmployeeRepository implements IEmployeeRepository{
 	List<Employee> employees = new ArrayList<Employee>();
 	
 	public List<Employee> GetAll(){

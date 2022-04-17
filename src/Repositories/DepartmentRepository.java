@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import abstractions.repositories.IDepartmentRepository;
 import models.Department;
 
-public class DepartmentRepository {
+public class DepartmentRepository implements IDepartmentRepository {
 	List<Department> departments = new ArrayList(Arrays.asList(new Department("Obixy")));
 	
 	public List<Department> GetAll(){

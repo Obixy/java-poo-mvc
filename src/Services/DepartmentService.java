@@ -3,9 +3,10 @@ package Services;
 import java.util.List;
 
 import Repositories.DepartmentRepository;
+import abstractions.services.IDepartmentService;
 import models.Department;
 
-public class DepartmentService {
+public class DepartmentService implements IDepartmentService{
 
 	private DepartmentRepository repo;
 
